@@ -1,0 +1,1 @@
+<!-- sidebar component to track progress, loads in data from global stores -->
