@@ -3,7 +3,7 @@
 </script>
 
 <main>
-	<h1>404</h1>
+	<h1>Events</h1>
 </main>
 
 <style>

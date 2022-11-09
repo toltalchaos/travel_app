@@ -1,13 +1,12 @@
 <script>
-import {  Link } from "svelte-routing";
 </script>
 
 <nav>
-	<Link to=''>home</Link>
-  <Link to='locations'>locations</Link>
-  <Link to='travel-Methods'>travel-Methods</Link>
-  <Link to='accomidations'>accomidations</Link>
-  <Link to='events'>events</Link>
+	<a href='/'>home</a>
+  <a href='locations'>locations</a>
+  <a href='travel-methods'>travel-methods</a>
+  <a href='accomidations'>accomidations</a>
+  <a href='events'>events</a>
 </nav>
 
 <style>
