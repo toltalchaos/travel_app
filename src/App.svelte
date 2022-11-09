@@ -1,30 +1,35 @@
 <script>
-	export let name;
+  import { Router, Route } from "svelte-routing";
+  import Footer from "./components/footer.svelte";
+
+  import Header from "./components/header.svelte";
+  import NavDeck from "./components/navDeck.svelte";
+  import Accomidations from "./pages/accomidations.svelte";
+  import Events from "./pages/events.svelte";
+  import Finalize from "./pages/finalize.svelte";
+  import Home from "./pages/home.svelte";
+  import LocalTravel from "./pages/localTravel.svelte";
+  import Locations from "./pages/locations.svelte";
+  import TravelMethods from "./pages/travelMethods.svelte";
+
+  export let url = "";
 </script>
 
+<Router url={url}>
+<Header />
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+    <Route path="" component={Home} />
+    <Route path="locations" component={Locations} />
+    <Route path="travel-Methods" component={TravelMethods} />
+    <Route path="accomidations" component={Accomidations} />
+    <Route path="events" component={Events} />
+    <Route path="local-travel" component={LocalTravel} />
+    <Route path="finalize" component={Finalize} />
 </main>
+  <Footer />
+</Router>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+  @media (min-width: 640px) {
+  }
 </style>

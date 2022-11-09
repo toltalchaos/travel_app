@@ -1,10 +1,9 @@
-<!-- sidebar component to track progress, loads in data from global stores -->
 <script>
 
 </script>
 
 <main>
-	
+	<h1>finalize</h1>
 </main>
 
 <style>
