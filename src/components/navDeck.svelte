@@ -7,6 +7,7 @@
   <a href='travel-methods'>travel-methods</a>
   <a href='accomidations'>accomidations</a>
   <a href='events'>events</a>
+  <a href='finalize'>FINALIZE</a>
 </nav>
 
 <style>
