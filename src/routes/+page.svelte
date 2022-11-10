@@ -1,12 +1,12 @@
 <!-- home component/langing page -->
 <script>
-	import log_me from '../components/test';
 	import { getContext } from 'svelte';
 	let travel_obj = getContext('travel_obj');
 	let input = null;
 
 	function changeContext() {
-		$travel_obj.addToPayload({ input: input });
+		$travel_obj.addToPayload({ 'input': input });
+		input = null
 	}
 </script>
 
@@ -14,12 +14,9 @@
 	<h1>Homepage + {input}</h1>
 	<input
 		type="text"
-		on:input={(e) => {
-			input = e.target.value;
-		}}
+		bind:value={input}
 	/>
-	<button on:click={log_me}>log me test js</button>
-	<button on:click={changeContext}>add to travel btn</button>
+	<button on:click={changeContext}>add to finalize payload json</button>
 </main>
 
 <style>
