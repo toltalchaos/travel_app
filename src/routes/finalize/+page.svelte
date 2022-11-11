@@ -9,7 +9,7 @@
   <h2>Store Data => {JSON.stringify($GlobalObject)}</h2>
 </main>
 
-<style>
+<style lang="scss">
   @media (min-width: 640px) {
   }
 </style>

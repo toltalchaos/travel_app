@@ -17,7 +17,7 @@
 	<button on:click={changeValue}>add to finalize payload json</button>
 </main>
 
-<style>
+<style lang="scss">
 	@media (min-width: 640px) {
 	}
 </style>

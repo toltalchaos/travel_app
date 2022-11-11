@@ -3,11 +3,11 @@
 
 </script>
 
-<main>
-	
-</main>
+<aside>
+	<h4>sidebar</h4>
+</aside>
 
-<style>
+<style lang="scss">
   @media (min-width: 640px) {
   }
 </style>
