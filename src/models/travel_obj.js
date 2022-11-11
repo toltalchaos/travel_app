@@ -5,6 +5,7 @@ export default class TravelObject{
 
     addToPayload(data){
         this.payload = {...data, ...this.payload}
+        return this
     }
 
 }

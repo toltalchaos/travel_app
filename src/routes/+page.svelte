@@ -1,16 +1,12 @@
 <!-- home component/langing page -->
 <script>
-	import GlobalObject from '../models/store'
+	import GlobalObject from '../models/store';
 
 	let input = null;
-	let currentGlobalData;
-	GlobalObject.subscribe((currentValue) => {
-		currentGlobalData = currentValue;
-	});
-
 	function changeValue() {
-		currentGlobalData.addToPayload({input:input})
-		GlobalObject.update(x => x)
+		GlobalObject.update((current) => {
+			return current.addToPayload({ input: input });
+		});
 		input = null;
 	}
 </script>
