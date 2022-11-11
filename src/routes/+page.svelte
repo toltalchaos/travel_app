@@ -1,22 +1,24 @@
 <!-- home component/langing page -->
 <script>
-	import { getContext } from 'svelte';
-	let travel_obj = getContext('travel_obj');
-	let input = null;
+	import GlobalObject from '../models/store'
 
-	function changeContext() {
-		$travel_obj.addToPayload({ 'input': input });
-		input = null
+	let input = null;
+	let currentGlobalData;
+	GlobalObject.subscribe((currentValue) => {
+		currentGlobalData = currentValue;
+	});
+
+	function changeValue() {
+		currentGlobalData.addToPayload({input:input})
+		GlobalObject.update(x => x)
+		input = null;
 	}
 </script>
 
 <main>
-	<h1>Homepage + {input}</h1>
-	<input
-		type="text"
-		bind:value={input}
-	/>
-	<button on:click={changeContext}>add to finalize payload json</button>
+	<h1>Homepage</h1>
+	<input type="text" bind:value={input} />
+	<button on:click={changeValue}>add to finalize payload json</button>
 </main>
 
 <style>

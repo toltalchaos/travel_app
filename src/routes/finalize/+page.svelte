@@ -1,11 +1,17 @@
 <script>
-import {getContext} from 'svelte'
-let travel_obj = getContext('travel_obj');
+import store from '../../models/store';
+import {getContext} from 'svelte';
+
+let storedata;
+store.subscribe((data) => {
+  storedata = data
+})
+
 </script>
 
 <main>
 	<h1>finalize</h1>
-  <h2>{JSON.stringify($travel_obj)}</h2>
+  <h2>Store Data => {JSON.stringify(storedata)}</h2>
 </main>
 
 <style>
