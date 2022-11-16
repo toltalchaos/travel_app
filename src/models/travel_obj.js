@@ -4,7 +4,14 @@ export default class TravelObject{
     }
 
     addToPayload(data){
-        this.payload = {...data, ...this.payload}
+        Object.keys(data).forEach((key,index) => {
+            if(key in this.payload){
+                this.payload[key] = data[key]
+            }
+            else{
+                this.payload = {...this.payload, [key]:data[key]}
+            }
+        })
         return this
     }
 

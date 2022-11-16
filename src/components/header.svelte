@@ -8,11 +8,16 @@
 </script>
 
 <header>
-	<h2>header</h2>
   <NavDeck/>
 </header>
 
 <style>
+  header{
+    padding:0.5rem;
+    background-color: blanchedalmond;
+    border-radius: 0 0 2rem 2rem;
+  }
+  
   @media (min-width: 640px) {
   }
 </style>

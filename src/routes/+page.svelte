@@ -18,6 +18,9 @@
 </main>
 
 <style lang="scss">
+	main{
+		background-color: tomato;
+	}
 	@media (min-width: 640px) {
 	}
 </style>
