@@ -1,6 +1,7 @@
 <!-- home component/langing page -->
 <script>
-	import GlobalObject from '../models/store';
+	import LeafletMap from '../components/map/LeafletMap.svelte';
+import GlobalObject from '../models/store';
 
 	let input = null;
 	function changeValue() {
@@ -15,9 +16,10 @@
 	<h1>Homepage</h1>
 	<input type="text" bind:value={input} />
 	<button on:click={changeValue}>add to finalize payload json</button>
+	<LeafletMap/>
 </main>
 
-<style lang="scss">
+<style>
 	main{
 		background-color: tomato;
 	}
