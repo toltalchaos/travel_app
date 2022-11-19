@@ -1,20 +1,27 @@
 <!-- a map object for location picking -->
 <script>
 	// https://leafletjs.com/examples/quick-start/
-    // https://leafletjs.com/reference.html
+	// https://leafletjs.com/reference.html
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
-    
+	import GlobalObject from '../../models/store';
+
 	let mapElement;
 	let map;
 
-	export let mapMarker = [51.5, -0.09];
-    
+	export let mapMarker = [,];
+	export let travel_time;
+
+	function changeGlobalValue(locationValue) {
+		GlobalObject.update((current) => {
+			return current.addToPayload({ [travel_time]: locationValue });
+		});
+		input = null;
+	}
+
 	onMount(async () => {
 		if (browser) {
 			const leaflet = await import('leaflet');
-            var popup = leaflet.popup();
-
 
 			//map outline box
 			map = leaflet.map(mapElement).setView([0, 0], 3);
@@ -28,20 +35,19 @@
 				.addTo(map);
 
 			// leaflet
-			// 	.marker(mapMarker)
-			// 	.addTo(map)
-			// .bindPopup('words go HERE - reflecting location type')
-			// .openPopup();
+				// .marker(mapMarker)
+				// .addTo(map)
+				// .bindPopup('click your current location')
+				// .openPopup();
 
 			function onMapClick(e) {
-				popup
+				leaflet.popup()
 					.setLatLng(e.latlng)
-					.setContent('You clicked the map at ' + e.latlng.toString())
+					.setContent(`${travel_time}`)
 					.openOn(map);
-                    mapMarker = [e.latlng.lat,e.latlng.lng]
-                    console.log(e.latlng, mapMarker)
-            }
-
+				mapMarker = [e.latlng.lat, e.latlng.lng];
+				changeGlobalValue({lat:e.latlng.lat, long:e.latlng.lng})
+			}
 			map.on('click', onMapClick);
 		}
 	});
@@ -53,12 +59,16 @@
 	});
 </script>
 
-<main>
+<div>
 	<div bind:this={mapElement} />
-</main>
+</div>
 
 <style>
-	@import 'leaflet/dist/leaflet.css';
+	/* @import 'leaflet/dist/leaflet.css'; */
+	div{
+		height: 100%;
+		width: 100%;
+	}
 	main div {
 		height: 800px;
 	}

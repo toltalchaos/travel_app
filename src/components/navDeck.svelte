@@ -19,24 +19,28 @@
   }
   ul{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 1rem;
   }
-  a{
-      background-color: tomato;
+  li{
+    background-color: tomato;
       border-radius: 1rem;
       padding: 1rem;
-      text-decoration: none;
-      color: black;
       transition: 0.2s;
+  }
+  a{ 
+      text-decoration: none;
+      color: black; 
     }
-  a:hover{
+  li:hover{
     background-color: aqua;
     padding: 1.75rem 0.5rem;
     border-radius: 3rem;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 650px) {
   }
 </style>

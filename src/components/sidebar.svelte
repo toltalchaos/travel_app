@@ -25,6 +25,7 @@
     padding: 1rem 1rem;
     border-radius: 0 1rem 1rem 0;
     transition: 0.2s;
+    z-index: 10;
   }
   .drawer-button:hover{
     padding: 1.5rem 1.5rem;
