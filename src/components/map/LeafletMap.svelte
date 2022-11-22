@@ -14,9 +14,11 @@
 
 	function changeGlobalValue(locationValue) {
 		GlobalObject.update((current) => {
-			return current.addToPayload({ [travel_time]: locationValue });
+			if(travel_time == 'Destination'){
+				return current.setDestinationData({ ...locationValue});
+			}
+			return current.setDepartureData({ ...locationValue});
 		});
-		input = null;
 	}
 
 	onMount(async () => {

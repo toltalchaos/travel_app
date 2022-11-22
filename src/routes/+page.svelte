@@ -1,26 +1,25 @@
 <!-- home component/langing page -->
 <script>
-	import LeafletMap from '../components/map/LeafletMap.svelte';
 	import GlobalObject from '../models/store';
 
-	let input = null;
+	// let input = null;
 	function changeGlobalValue(value) {
 		GlobalObject.update((current) => {
-			return current.addToPayload({ ...value });
+			return current.setTimelineData(value);
 		});
-		input = null;
+		// input = null;
 	}
 </script>
 
 <main>
 	<h1>Homepage</h1>
 	<form action="">
-		<input type="text" bind:value={input} />
+		<!-- <input type="text" bind:value={input} />
 		<button
 			on:click={(e) => {
-				changeGlobalValue({ input: input });
+				changeGlobalValue({ input: input }, e.target.id);
 			}}>add to finalize payload json</button
-		>
+		> -->
 
 		<div class="trip-departure-time">
 			<label for="departure-day">Departure date:</label>
