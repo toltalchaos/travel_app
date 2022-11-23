@@ -8,7 +8,7 @@
 </script>
 
 <header>
-  <NavDeck/>
+ <p>header</p>
 </header>
 
 <style>

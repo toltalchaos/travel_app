@@ -1,7 +1,8 @@
 <!-- sidebar component to track progress, loads in data from global stores -->
 <script>
-  import GlobalObject from '../models/store'
+  import GlobalTravelObject from '../models/store'
   import Drawer from './Drawer.svelte'
+	import NavDeck from './navDeck.svelte';
   let open = false
   let placement = 'right'
 
@@ -14,8 +15,9 @@
 
   <Drawer { open } { placement } on:clickAway={() => open = false} size='600px'>
       <button class="drawer-button" on:click={() => open = false}>Close</button>
+      <NavDeck/>
       <!-- the below should be componentized -->
-      <h2>Store Data => {JSON.stringify($GlobalObject)}</h2>
+      <h2>Store Data => {JSON.stringify($GlobalTravelObject)}</h2>
   </Drawer>
 
 </aside>

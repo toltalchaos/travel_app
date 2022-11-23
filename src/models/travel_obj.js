@@ -8,6 +8,7 @@ export default class TravelObject {
 		this.destination_location = {};
 		this.travel_methods = {primary : "Driving"};
 		this.accommodations = {price:""}
+		this.event_survey = {}
 	}
 
 	addToValue(data, obj){
@@ -46,6 +47,10 @@ export default class TravelObject {
 	}
 	setAccommodations(data){
 		this.accommodations = this.addToValue(data, this.accommodations)
+		return this
+	}
+	setEventSurvey(data){
+		this.event_survey = this.addToValue(data, this.event_survey)
 		return this
 	}
 }

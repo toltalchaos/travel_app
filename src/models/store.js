@@ -1,6 +1,9 @@
 import {writable} from 'svelte/store'
+import EventsObject from './events'
 import TravelObject from './travel_obj'
 
-const GlobalObject = writable(new TravelObject())
+const GlobalTravelObject = writable(new TravelObject())
 
-export default GlobalObject
+const GlobalEventsObject = writable(new EventsObject())
+
+export default GlobalTravelObject

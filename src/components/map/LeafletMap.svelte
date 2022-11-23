@@ -4,7 +4,7 @@
 	// https://leafletjs.com/reference.html
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
-	import GlobalObject from '../../models/store';
+	import GlobalTravelObject from '../../models/store';
 
 	let mapElement;
 	let map;
@@ -13,7 +13,7 @@
 	export let travel_time;
 
 	function changeGlobalValue(locationValue) {
-		GlobalObject.update((current) => {
+		GlobalTravelObject.update((current) => {
 			if(travel_time == 'Destination'){
 				return current.setDestinationData({ ...locationValue});
 			}

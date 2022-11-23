@@ -1,17 +1,20 @@
 <script>
   import RadioButtons from '../../components/RadioButtons.svelte';
-import GlobalObject from '../../models/store';
+  import NavButton from "../../components/navButton.svelte";
+import GlobalTravelObject from '../../models/store';
 	let selected = null;
+  let buttonGroup = null;
 
   function changeGlobalValue(value) {
-		GlobalObject.update((current) => {
+		GlobalTravelObject.update((current) => {
 			return current.setMainTravel(value);
 		});
 	}
 	
 	function onChange(e) {
 		selected = e.currentTarget.value;
-    document.getElementsByName('travel-method').forEach(element => {
+		buttonGroup = e.currentTarget.name;
+		document.getElementsByName(buttonGroup).forEach((element) => {
       element.parentElement.classList.remove('checked')
     });
     e.target.parentElement.classList.add('checked')
@@ -22,19 +25,26 @@ import GlobalObject from '../../models/store';
 <main>
 	<h1>Travel Methods</h1>
 
-  <RadioButtons checkedVal={$GlobalObject.travel_methods.primary == "Driving"} changeMethod={onChange} nameValue={"Driving"} buttonGroup={"travel-method"} />
-   <RadioButtons checkedVal={$GlobalObject.travel_methods.primary == "Flying"} changeMethod={onChange} nameValue={"Flying"} buttonGroup={"travel-method"} />
-   <RadioButtons checkedVal={$GlobalObject.travel_methods.primary == "Bus"} changeMethod={onChange} nameValue={"Bus"} buttonGroup={"travel-method"} />
-   <RadioButtons checkedVal={$GlobalObject.travel_methods.primary == "Train"} changeMethod={onChange} nameValue={"Train"} buttonGroup={"travel-method"} />
-   <RadioButtons  checkedVal={$GlobalObject.travel_methods.primary == "Walking"} changeMethod={onChange} nameValue={"Walking"} buttonGroup={"travel-method"} />
+  <RadioButtons checkedVal={$GlobalTravelObject.travel_methods.primary == "Driving"} changeMethod={onChange} nameValue={"Driving"} buttonGroup={"travel-method"} />
+   <RadioButtons checkedVal={$GlobalTravelObject.travel_methods.primary == "Flying"} changeMethod={onChange} nameValue={"Flying"} buttonGroup={"travel-method"} />
+   <RadioButtons checkedVal={$GlobalTravelObject.travel_methods.primary == "Bus"} changeMethod={onChange} nameValue={"Bus"} buttonGroup={"travel-method"} />
+   <RadioButtons checkedVal={$GlobalTravelObject.travel_methods.primary == "Train"} changeMethod={onChange} nameValue={"Train"} buttonGroup={"travel-method"} />
+   <RadioButtons  checkedVal={$GlobalTravelObject.travel_methods.primary == "Walking"} changeMethod={onChange} nameValue={"Walking"} buttonGroup={"travel-method"} />
 
-
+   {#if $GlobalTravelObject.travel_methods.primary !== undefined}
+        <section>
+          <NavButton location={"accomidations"} text={"Next"}/>
+        </section>
+  {/if}
 </main>
 
 <style>
   main{
     display: flex;
     flex-direction: column;
+  }
+  section{
+    margin: 1rem;
   }
   @media (min-width: 640px) {
   }
