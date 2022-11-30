@@ -3,8 +3,9 @@ import Footer from '../components/footer.svelte';
 import Header from '../components/header.svelte';
 	import Sidebar from '../components/sidebar.svelte';
 
-
 </script>
+
+
 <div>
   <Header/>
   <Sidebar/>

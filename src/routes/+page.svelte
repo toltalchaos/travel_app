@@ -49,6 +49,7 @@ import GlobalTravelObject from '../models/store';
 				type="date"
 				id="arrival-day"
 				name="trip-end-day"
+				min={$GlobalTravelObject.timeline_data.trip_departure_date == undefined ? today : $GlobalTravelObject.timeline_data.trip_departure_date }
 				required
 				on:change={(e) => {
 					changeGlobalValue({ trip_arrival_date: e.target.value });
