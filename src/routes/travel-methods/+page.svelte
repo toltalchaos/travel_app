@@ -5,7 +5,6 @@
 	import FlightMethod from './flightMethod.svelte';
 	let selected = null;
 	let buttonGroup = null;
-
 	function changeGlobalValue(value) {
 		GlobalTravelObject.update((current) => {
 			return current.setMainTravel(value);

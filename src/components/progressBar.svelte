@@ -1,7 +1,6 @@
 
 <script>
 	export let progress = 0
-    console.log('recieving',progress)
 	
 	$: cssVarStyles = `--background:radial-gradient(white 50%, transparent 51%),
     conic-gradient(transparent 0deg ${360 * progress}deg, gainsboro ${360 * progress}deg 360deg),

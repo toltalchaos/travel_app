@@ -46,14 +46,26 @@ export async function getFlights(iata_depart, iata_arrival, travelObj){
             cabin_class: "CABIN_CLASS_ECONOMY"
         }
     }
-    try{
-        //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-        let response = await axios.post('https://partners.api.skyscanner.net/apiservices/v3/flights/live/search/create', body, headers)
-    }
-    catch(error){
-        errorHandler(error)
-    }
+    let response = await callSkyscanner(headers, body, 'https://partners.api.skyscanner.net/apiservices/v3/flights/live/search/create', 'POST')
 
     //return response.data.sessionToken
     return 0.8
+}
+
+async function callSkyscanner(headers, body, url, method){
+    try{
+        //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+        let response = await fetch(url, {
+            method: method,
+            mode: 'no-cors',
+            headers : headers,
+            body: JSON.stringify(body)
+        })
+        console.log(response)
+        return response
+    }
+    catch(error){
+        return errorHandler(error)
+    }
+    
 }

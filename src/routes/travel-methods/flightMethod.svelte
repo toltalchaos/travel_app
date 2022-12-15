@@ -18,16 +18,16 @@
 			);
 		}
 		if ($GlobalTravelObject.destination_location.lat !== undefined) {
-			destination_airport = await airportFinder(
-				$GlobalTravelObject.destination_location.lat,
-				$GlobalTravelObject.destination_location.long
-			);
+			// destination_airport = await airportFinder(
+			// 	$GlobalTravelObject.destination_location.lat,
+			// 	$GlobalTravelObject.destination_location.long
+			// );
+			destination_airport = 'YVR'
 		}
 	});
 	$: if (destination_airport != null && departure_airport != null) {
 		getFlights(departure_airport, destination_airport, $GlobalTravelObject).then((resp) => {
 			progress = resp;
-			console.log('sending', progress);
 		});
 	}
 	//populate lists of bookable flights displaying key data, onclick for each flight overwrite the global obj
