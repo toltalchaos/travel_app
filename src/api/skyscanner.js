@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {SKYSCANNER_API_KEY} from '$env/static/private'
+import { callSkyscanner } from './proxyServer/+server';
 import errorHandler from './axiosError';
 //https://developers.skyscanner.net/docs/flights-live-prices/overview
 //SKYSCANNER_API_KEY
@@ -8,8 +9,6 @@ import errorHandler from './axiosError';
 export async function getFlights(iata_depart, iata_arrival, travelObj){
     let headers = {
         'x-api-key': SKYSCANNER_API_KEY,
-        'Access-Control-Allow-Origin': true
-
     } 
     let body = {
         query: {
@@ -48,25 +47,9 @@ export async function getFlights(iata_depart, iata_arrival, travelObj){
             cabin_class: "CABIN_CLASS_ECONOMY"
         }
     }
-    let response = await callSkyscanner(headers, body, 'https://partners.api.skyscanner.net/apiservices/v3/flights/live/search/create', 'POST')
 
+    //let response = await callSkyscanner(headers, body, 'https://partners.api.skyscanner.net/apiservices/v3/flights/live/search/create', 'POST')
+    console.log(response)
     //return response.data.sessionToken
     return 0.8
-}
-
-async function callSkyscanner(headers, body, url, method){
-    try{
-        //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-        let response = await fetch(url, {
-            method: method,
-            headers : headers,
-            body: JSON.stringify(body)
-        })
-        console.log(response)
-        return response
-    }
-    catch(error){
-        return errorHandler(error)
-    }
-    
 }
