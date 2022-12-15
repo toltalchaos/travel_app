@@ -1,1 +1,22 @@
-<!-- https://svelte.dev/repl/f1437286b08d4890b9207180868ee37e?version=3.46.4 -->
+
+<script>
+	export let progress = 0
+    console.log('recieving',progress)
+	
+	$: cssVarStyles = `--background:radial-gradient(white 50%, transparent 51%),
+    conic-gradient(transparent 0deg ${360 * progress}deg, gainsboro ${360 * progress}deg 360deg),
+    conic-gradient(orange 0deg, yellow 90deg, lightgreen 180deg, green);`
+</script>
+
+<style>
+#progress-circle {
+  background: var(--background);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+	transition: all 500ms ease-in;
+	will-change: transform;
+}
+</style>
+
+<div id="progress-circle" style="{cssVarStyles}"></div>

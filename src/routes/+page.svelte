@@ -32,7 +32,7 @@ import GlobalTravelObject from '../models/store';
 					changeGlobalValue({ trip_departure_date: e.target.value });
 				}}/>
 
-			<label for="departure-time">Choose a time for your departure:</label>
+			<!-- <label for="departure-time">Choose a time for your departure:</label>
 			<input
 				type="time"
 				id="departure-time"
@@ -40,7 +40,7 @@ import GlobalTravelObject from '../models/store';
 				required
 				on:change={(e) => {
 					changeGlobalValue({ trip_departure_time: e.target.value });
-				}}/>
+				}}/> -->
 		</div>
 
 		<div class="trip-arrival-time">
@@ -56,7 +56,7 @@ import GlobalTravelObject from '../models/store';
 				}}
 			/>
 
-			<label for="arrival-time"
+			<!-- <label for="arrival-time"
 				>Choose a time for your arrival back home at the end of the trip:</label>
 			<input
 				type="time"
@@ -66,10 +66,10 @@ import GlobalTravelObject from '../models/store';
 				on:change={(e) => {
 					changeGlobalValue({ trip_arrival_time: e.target.value });
 				}}
-			/>
+			/> -->
 		</div>
 	</form>
-{#if $GlobalTravelObject.timeline_data.trip_arrival_time !== undefined}
+{#if $GlobalTravelObject.timeline_data.trip_arrival_date !== undefined}
 			<section>
 				<NavButton location={"locations"} text={"next"}/>
 			</section>
