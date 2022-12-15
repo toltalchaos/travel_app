@@ -7,7 +7,9 @@ import errorHandler from './axiosError';
 //currently assuming 1 adult in economy 
 export async function getFlights(iata_depart, iata_arrival, travelObj){
     let headers = {
-        'x-api-key': SKYSCANNER_API_KEY
+        'x-api-key': SKYSCANNER_API_KEY,
+        'Access-Control-Allow-Origin': true
+
     } 
     let body = {
         query: {
@@ -57,7 +59,6 @@ async function callSkyscanner(headers, body, url, method){
         //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
         let response = await fetch(url, {
             method: method,
-            mode: 'no-cors',
             headers : headers,
             body: JSON.stringify(body)
         })
